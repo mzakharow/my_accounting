@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  income: false
+  sum: 9.99
+  description: MyText
+
+two:
+  income: false
+  sum: 9.99
+  description: MyText
