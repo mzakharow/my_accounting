@@ -1,9 +1,10 @@
 class TransfersController < ApplicationController
   before_action :set_transfer, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :destroy]
   # GET /transfers or /transfers.json
   def index
     @transfers = Transfer.all
+    # render json: @transfers
   end
 
   # GET /transfers/1 or /transfers/1.json
