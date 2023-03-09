@@ -4,7 +4,7 @@ class CreateTransfers < ActiveRecord::Migration[7.0]
       t.boolean :income
       t.decimal :sum
       t.text :description
-      # t.references :user
+      t.references :user
 
       t.timestamps
     end

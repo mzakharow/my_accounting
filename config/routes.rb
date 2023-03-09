@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'persons/profile', as: 'user_root'
+  # get 'persons/profile', as: 'user_root'
 
   root 'transfers#index'
+
 end

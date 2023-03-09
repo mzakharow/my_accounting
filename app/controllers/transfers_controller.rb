@@ -1,6 +1,8 @@
 class TransfersController < ApplicationController
   before_action :set_transfer, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, :only => [:new, :create, :edit, :destroy]
+  # before_action :authenticate_user!, :only => [:new, :create, :edit, :destroy]
+
+  # before_action :authenticate_user!, :only => [:create, :edit, :destroy]
   # GET /transfers or /transfers.json
   def index
     @transfers = Transfer.all
@@ -9,11 +11,13 @@ class TransfersController < ApplicationController
 
   # GET /transfers/1 or /transfers/1.json
   def show
+    # @user = User.find(current_user.id)
   end
 
   # GET /transfers/new
   def new
     @transfer = Transfer.new
+    # @transfer.user_id = current_user.id
   end
 
   # GET /transfers/1/edit
@@ -23,6 +27,7 @@ class TransfersController < ApplicationController
   # POST /transfers or /transfers.json
   def create
     @transfer = Transfer.new(transfer_params)
+    @transfer.user_id = current_user.id
 
     respond_to do |format|
       if @transfer.save
@@ -66,6 +71,6 @@ class TransfersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transfer_params
-      params.require(:transfer).permit(:income, :sum, :description)
+      params.require(:transfer).permit(:income, :sum, :description, :user)
     end
 end
