@@ -3,7 +3,8 @@ class TransfersController < ApplicationController
 
   # GET /transfers or /transfers.json
   def index
-    @transfers = Transfer.all
+    # @transfers = Transfer.all
+    @transfers = Transfer.where(users: current_user)
   end
 
   # GET /transfers/1 or /transfers/1.json

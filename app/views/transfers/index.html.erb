@@ -3,60 +3,52 @@
 <div class="container">
   <div class="row">
 <h1>Transfers</h1>
-    <%= link_to "Добавить операцию", new_transfer_path %>
     <div id="transfers">
     <table class="table table-striped">
       <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Операция</th>
-        <th scope="col">Направление</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Сумма</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Действия</th>
       </tr>
       </thead>
       <% @transfers.each do |transfer| %>
       <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td><%= render transfer %></td>
-        <td>Otto</td>
+        <th scope="row"><%= transfer.income ? "приход" : "расход"  %></th>
+<!--        <td><%#= render transfer %></td>-->
+        <td><%= transfer.sum %></td>
+        <td><%= transfer.description  %></td>
 <!--        <td><%#= link_to "Show this transfer", transfer %></td>-->
-        <td><%= button_to "Подробнее", transfer, :id => "open-contacts-dialog-btn",
-                      :class => "btn btn-primary", :method => :get %></td>
-        <td><%= button_to "Удалить", transfer, :id => "open-contacts-dialog-btn",
-                          :class => "btn btn-danger", :method => :delete %></td>
-        <td><%= button_to "Изменить", edit_transfer_path(transfer), :id => transfer.id,
-                          :class => "btn btn-primary", :method => :get %></td>
+        <td>
+          <div class="row">
+            <div class="btn-group">
+            <%= button_to "Подробнее", transfer, :id => "open-contacts-dialog-btn",
+                                     :class => "btn btn-success", :method => :get %>
+              <%= button_to "Изменить", edit_transfer_path(transfer), :id => transfer.id,
+                            :class => "btn btn-primary", :method => :get %>
+              <%= button_to "Удалить", transfer, :id => "open-contacts-dialog-btn",
+                                 :class => "btn btn-danger ", :method => :delete %>
+            </div>
+          </div>
+        </td>
+
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
+
 
       </tbody>
       <% end %>
+            <tr>
+              <th scope="row">Итого:</th>
+              <td>43534534</td>
+              <td></td>
+              <td></td>
+            </tr>
     </table>
 </div>
 
-    <a href="#" class="btn btn-primary">Текст кнопки</a>
-
-    <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">Left</button>
-      <button type="button" class="btn btn-default">Middle</button>
-      <button type="button" class="btn btn-default">Right</button>
-    </div>
-
 <%= link_to "Добавить операцию", new_transfer_path %>
 
-    <%= button_to "Add", new_transfer_path, :id => "open-contacts-dialog-btn",
-                  :class => "btn btn-primary", :method => :get %>
-
-    <a class="btn btn-success" href="{% url 'account:login' %}" role="button">Вход</a>
-
-    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-      Кнопка-переключатель
-    </button>
   </div>
 </div>
