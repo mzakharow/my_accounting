@@ -1,5 +1,6 @@
 class TransfersController < ApplicationController
   before_action :set_transfer, only: %i[ show edit update destroy ]
+  before_action :deny_user, only: %i[new create edit update destroy]
 
   # GET /transfers or /transfers.json
   def index
@@ -68,4 +69,10 @@ class TransfersController < ApplicationController
     def transfer_params
       params.require(:transfer).permit(:income, :sum, :description, :user_id)
     end
+
+  def deny_user
+    if current_user.nil?
+      redirect_to new_user_session_url
+    end
+  end
 end
