@@ -24,10 +24,11 @@ class TransfersController < ApplicationController
   # POST /transfers or /transfers.json
   def create
     @transfer = Transfer.new(transfer_params)
+    @transfer.user = current_user
 
     respond_to do |format|
       if @transfer.save
-        format.html { redirect_to transfer_url(@transfer), notice: "Transfer was successfully created." }
+        format.html { redirect_to transfer_url(@transfer), notice: "Операция успешно создана" }
         format.json { render :show, status: :created, location: @transfer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,7 +68,7 @@ class TransfersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transfer_params
-      params.require(:transfer).permit(:income, :sum, :description, :user_id)
+      params.require(:transfer).permit(:income, :sum, :description, :user_id, :created)
     end
 
   def deny_user

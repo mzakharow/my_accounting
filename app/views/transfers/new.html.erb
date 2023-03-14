@@ -1,9 +1,12 @@
-<h1>New transfer</h1>
+<div class="container">
+  <div class="row">
+    <h1>Создать новую запись</h1>
 
-<%= render "form", transfer: @transfer %>
+    <%= render "form", transfer: @transfer %>
 
-<br>
-
-<div>
-  <%= link_to "Back to transfers", transfers_path %>
+    <br>
+    <div>
+      <%= link_to "Вернуться к списку", transfers_path %>
+    </div>
+  </div>
 </div>

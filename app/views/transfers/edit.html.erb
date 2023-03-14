@@ -1,10 +1,13 @@
-<h1>Editing transfer</h1>
+<div class="container">
+  <div class="row">
+    <h1>Изменение операции</h1>
 
-<%= render "form", transfer: @transfer %>
+    <%= render "form", transfer: @transfer %>
 
-<br>
-
-<div>
-  <%= link_to "Show this transfer", @transfer %> |
-  <%= link_to "Back to transfers", transfers_path %>
+    <br>
+    <div>
+<!--      <%#= link_to "Посмотреть подробности", @transfer %> |-->
+      <%= link_to "Вернуться к списку", transfers_path %>
+    </div>
+  </div>
 </div>

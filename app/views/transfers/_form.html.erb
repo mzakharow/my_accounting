@@ -1,8 +1,7 @@
 <%= form_with(model: transfer) do |form| %>
   <% if transfer.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
-
+      <h2><%= pluralize(transfer.errors.count, "ошибка") %> при сохранении операции:</h2>
       <ul>
         <% transfer.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,27 +10,26 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :income, style: "display: block" %>
-    <%= form.check_box :income %>
+  <div class="col-sm-10">
+    <div class="form-check">
+      <%= form.check_box(:income, { :class => 'form-check-input' }) %>
+      <label class="form-check-label" for="income">приход</label>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :sum, style: "display: block" %>
-    <%= form.text_field :sum %>
+  <div class="form-group col-md-4">
+    <label for="description">Сумма</label>
+    <%= form.text_field(:sum, { :class => 'form-control' }) %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group col-md-4">
+    <label for="description">Описание</label>
+    <%= form.text_area(:description, { :class => 'form-control' }) %>
   </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <br>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <br>
 <% end %>
+

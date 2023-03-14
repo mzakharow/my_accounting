@@ -1,22 +1,9 @@
 <div id="<%= dom_id transfer %>">
-  <p>
-    <strong>Income:</strong>
-    <%= transfer.income %>
-  </p>
-
-  <p>
-    <strong>Sum:</strong>
-    <%= transfer.sum %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= transfer.description %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= transfer.user_id %>
-  </p>
-
+  <div class="container">
+    <div class="alert alert-success" role="alert">
+      Приход на сумму <%= transfer.sum %>, сделан <%= transfer.created_at.strftime("%d %b. %Y") %>.
+      Комментарий: <%= transfer.description %>.
+    </div>
+  </div>
 </div>
+

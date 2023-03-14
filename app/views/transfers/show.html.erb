@@ -2,9 +2,16 @@
 
 <%= render @transfer %>
 
-<div>
-  <%= link_to "Edit this transfer", edit_transfer_path(@transfer) %> |
-  <%= link_to "Back to transfers", transfers_path %>
-
-  <%= button_to "Destroy this transfer", @transfer, method: :delete %>
+<div class="container">
+  <div class="row">
+    <div>
+      <%= link_to "Изменить", edit_transfer_path(@transfer) %> |
+      <%= link_to "Вернуться к списку", transfers_path %>
+    </div>
+    <div>
+      <br>
+      <%= button_to "Удалить эту операцию", @transfer, :id => "open-contacts-dialog-btn",
+                    :class => "btn btn-success", :method => :delete %>
+    </div>
+  </div>
 </div>
