@@ -18,11 +18,9 @@
           <tbody>
           <tr>
             <th scope="row"><%= transfer.income ? "приход" : "расход" %></th>
-            <!--        <td><%#= render transfer %></td>-->
             <td><%= transfer.sum %></td>
             <td><%= transfer.description %></td>
             <td><%= transfer.created_at.strftime("%d %b. %Y") %></td>
-            <!--        <td><%#= link_to "Show this transfer", transfer %></td>-->
             <td>
               <div class="row">
                 <div class="btn-group">
